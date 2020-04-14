@@ -10,7 +10,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX }, 
                     uniqueness: true  #一意である事同じ物がないか 
   has_secure_password  
-  validates :password, presence: true, length: { minimum: 6 } #存在性、最小６文字から
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true #存在性、最小６文字から
 
 # 渡された文字列のハッシュ値を返します。
   def User.digest(string)
